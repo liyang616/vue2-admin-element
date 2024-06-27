@@ -1,0 +1,358 @@
+@import "./variables.module.scss";
+@import "./mixin.scss";
+@import "./sidebar.scss";
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+aside {
+  background: #eef1f6;
+  padding: 8px 24px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  display: block;
+  line-height: 32px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: #337ab7;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+// 公共颜色
+.red-font {
+  color: #ff4949 !important;
+}
+
+// 公共距离
+@for $var from 1 through 100 {
+  .u-m-l-#{$var} {
+    margin-left: $var * 1px !important;
+  }
+  .u-m-r-#{$var} {
+    margin-right: $var * 1px !important;
+  }
+  .u-m-t-#{$var} {
+    margin-top: $var * 1px !important;
+  }
+  .u-m-b-#{$var} {
+    margin-bottom: $var * 1px !important;
+  }
+  .u-p-l-#{$var} {
+    padding-left: $var * 1px !important;
+  }
+  .u-p-r-#{$var} {
+    padding-right: $var * 1px !important;
+  }
+  .u-p-t-#{$var} {
+    padding-top: $var * 1px !important;
+  }
+  .u-p-b-#{$var} {
+    padding-bottom: $var * 1px !important;
+  }
+}
+
+// 公共宽度
+@for $var from 1 through 1000 {
+  .width-#{$var} {
+    width: $var * 1px !important;
+  }
+}
+@for $var from 1 through 100 {
+  .width#{$var} {
+    width: $var * 1% !important;
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(
+    90deg,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(33, 120, 241, 1) 100%,
+    rgba(33, 120, 241, 1) 100%
+  );
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+/**elementui 样式修改start**/
+.el-table th {
+  background-color: #f5f7fa !important;
+}
+.el-table th .small_text {
+  margin: -3px 0 0;
+  color: #bcc0c7;
+  font-size: 12px;
+}
+.el-table td .td_link {
+  color: #409eff;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.el-upload--picture-card {
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+}
+.el-upload-list--picture-card .el-upload-list__item {
+  width: 120px;
+  height: 120px;
+}
+.el-upload-list--picture-card .el-upload-list__item-thumbnail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 260%;
+  max-height: 260%;
+  object-fit: cover;
+}
+
+.el-input-number--small {
+  width: 132px;
+}
+.el-form-item__label {
+  font-size: 12px;
+}
+/**elementui 样式修改end**/
+
+.search-area {
+  .width {
+    width: 164px;
+  }
+}
+
+.form-btn {
+  text-align: right;
+}
+
+.table-page {
+  margin-top: 10px;
+  text-align: center;
+}
+.table-operate {
+  text-align: right;
+}
+
+.dialog-label {
+  position: absolute;
+  top: 60px;
+}
+
+.form-get-code {
+  position: relative;
+  .el-input__inner {
+    padding-left: 15px;
+  }
+  .code-label {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    cursor: pointer;
+    color: #409eff;
+    &.disabled {
+      color: #c0c4cc;
+      cursor: initial;
+    }
+  }
+}
+
+.form-tips {
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  line-height: 14px;
+  font-size: 12px;
+  margin-top: 5px;
+  color: #999999;
+}
+
+// 富文本tinymce
+.tox-tinymce-aux {
+  z-index: 11111 !important;
+}
+
+.table-img {
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  background-color: #ebeef5;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    max-width: 260%;
+    max-height: 260%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
