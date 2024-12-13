@@ -71,10 +71,10 @@ export default {
     }
   },
   mounted() {
-    axios.get("/static/1.md").then((res) => {
-      // console.log(res)
-      this.editorVal = res.data
-    })
+    // axios.get("/static/1.md").then((res) => {
+    //   console.log(res)
+    //   this.editorVal = res.data
+    // })
     this.myEcharts()
     this.watchSize()
   }
